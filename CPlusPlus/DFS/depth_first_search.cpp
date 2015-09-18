@@ -70,7 +70,6 @@ int Graph::isConnected(int r1, int r2)
 	if (r1 == r2) return 1;
 	if (r1 < 0 || r1 > _number || r2 < 0 || r2 > _number) return -1;
 
-	//cout << "[" << r1 << "," << r2 << "]"<< _array[r1-1][r2-1]  << endl;
 	return _array[r1][r2] == 1 ? 1: 0;
 }
 
@@ -109,11 +108,8 @@ void Graph::depthFirstSearch(int origin, int destination)
 			break;
 		}
 
-		//cout << k << endl;
 		for (idx = _number; idx > 0; idx--) {
-//			cout << "con" << idx << ":" << isConnected(k, idx) << "visit" << visited[idx] << endl;
 			if (isConnected(k, idx) == 1 && visited[idx] == false) {
-				//cout << "found-" << idx << endl;
 				nodes->push(k);
 				k = idx;
 				visited[idx] = 1;
@@ -146,6 +142,8 @@ int main(int argc, char *argv[])
 	path.addEdge(2,6);
 	path.addEdge(4,7);
 	path.addEdge(4,8);
+	path.addEdge(6,7);
+	path.addEdge(7,8);
 
 	path.depthFirstSearch(1,6);
 

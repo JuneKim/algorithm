@@ -28,6 +28,7 @@ public:
 	int pop();
 	int push(int data);
 	bool isEmpty();
+	bool isExist(int data);
 	void display();
 };
 
@@ -47,6 +48,20 @@ void StackInt::display()
 		cout << pop() << " ";
 	}
 
+}
+
+bool StackInt::isExist(int data)
+{
+	StackNode *ptr = NULL;
+	ptr = _top;
+	while(ptr != NULL) {
+		if (_top->getData() == data) {
+			return true;
+		}
+		ptr = _top->getPrev();
+	}
+
+	return false;
 }
 
 
