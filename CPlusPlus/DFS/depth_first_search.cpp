@@ -1,3 +1,9 @@
+/**
+ * @maintainer June Kim<infinite.minjune.kim@gmail.com>
+ * @brief simple dfs in c++
+ * @date 18/09/15
+ */
+
 #include <iostream>
 #include "stack.h"
 
@@ -6,7 +12,7 @@ using namespace std;
 class Graph {
 private:
 	int _number;
-	int **_A;
+	int **_array;
 public:
 	Graph(int num = 2);
 	~Graph();
@@ -23,16 +29,16 @@ Graph::Graph(int num)
 
 	_number = num;
 
-	_A = new int*[num+1];	
-	// two-demension array(num X num)  cf. _A = (int*)malloc(sizeof(int*) * num); _A[idx] = malloc(sizeof(int) * num);
+	_array = new int*[num+1];	
+	// two-demension array(num X num)  cf. _array = (int*)malloc(sizeof(int*) * num); _array[idx] = malloc(sizeof(int) * num);
 	for (idx = 0; idx < num+1; idx++) {
-		_A[idx] = new int[num+1];
+		_array[idx] = new int[num+1];
 	}
 
 	// initialize
 	for (idx = 0; idx < num + 1; idx++) {
 		for (idy = 0; idy < num + 1; idy++) {
-			_A[idx][idy] = 0;
+			_array[idx][idy] = 0;
 		}
 	}
 }
@@ -42,9 +48,9 @@ Graph::~Graph()
 	int i = 0;
 	if (_number > 0) {
 		for (i = 0; i < _number + 1; i++) {
-			delete []_A[i];
+			delete []_array[i];
 		}
-		delete []_A;
+		delete []_array;
 	}
 }
 
@@ -53,7 +59,7 @@ void Graph::displayEdge()
 	int idx, idy;
 	for (idx = 1; idx < _number + 1; idx++) {
 		for (idy = 1; idy < _number + 1; idy++) {
-			cout << " " << _A[idx][idy] << " ";
+			cout << " " << _array[idx][idy] << " ";
 		}
 		cout << endl;
 	}
@@ -64,15 +70,15 @@ int Graph::isConnected(int r1, int r2)
 	if (r1 == r2) return 1;
 	if (r1 < 0 || r1 > _number || r2 < 0 || r2 > _number) return -1;
 
-	//cout << "[" << r1 << "," << r2 << "]"<< _A[r1-1][r2-1]  << endl;
-	return _A[r1][r2] == 1 ? 1: 0;
+	//cout << "[" << r1 << "," << r2 << "]"<< _array[r1-1][r2-1]  << endl;
+	return _array[r1][r2] == 1 ? 1: 0;
 }
 
 void Graph::addEdge(int r1, int r2)
 {
 	if (r1 == r2) return;
 	if (r1 < 0 || r1 > _number || r2 < 0 || r2 > _number) return;
-	_A[r1][r2] = _A[r2][r1] = 1;
+	_array[r1][r2] = _array[r2][r1] = 1;
 }
 
 void Graph::depthFirstSearch(int origin, int destination)
@@ -92,7 +98,7 @@ void Graph::depthFirstSearch(int origin, int destination)
 	if (origin == destination) {
 		return;
 	}
-	displayEdge();
+	//displayEdge();
 	visited[origin] = true;
 	if (origin == destination) return;
 	int k = origin;
@@ -103,11 +109,11 @@ void Graph::depthFirstSearch(int origin, int destination)
 			break;
 		}
 
-		cout << k << endl;
+		//cout << k << endl;
 		for (idx = _number; idx > 0; idx--) {
 //			cout << "con" << idx << ":" << isConnected(k, idx) << "visit" << visited[idx] << endl;
 			if (isConnected(k, idx) == 1 && visited[idx] == false) {
-				cout << "found-" << idx << endl;
+				//cout << "found-" << idx << endl;
 				nodes->push(k);
 				k = idx;
 				visited[idx] = 1;
