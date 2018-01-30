@@ -14,7 +14,7 @@ bool isValid(int *guessNum)
 {
 	int cntArr[NUMBER_MAX] = {0, };
 	for (int idx = 0; idx < DIGIT_NUM; ++idx) {
-		if (guessNum[idx] < '0' || guessNum[idx] > '9' || cntArr[guessNum[idx]] > 0) return false;
+		if (guessNum[idx] < 0 || guessNum[idx] > 9 || cntArr[guessNum[idx]] > 0) return false;
 		cntArr[guessNum[idx]]++;
 	}
 
