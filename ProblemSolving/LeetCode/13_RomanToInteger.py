@@ -1,3 +1,4 @@
+from typing import List
 values = {'I': 1, "X": 10,"V": 5, "L": 50, "C": 100, "D": 500, "M": 1000}
 reduced = {"V": 4, "X": 9, "L": 40, "C": 90, "D": 400, "M": 900}
 

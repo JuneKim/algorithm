@@ -1,3 +1,4 @@
+from typing import List
 def deep_copy(nums: List[int]) -> List[int]:
     tmp_list = []
     for num in nums:

@@ -1,4 +1,5 @@
-class Solution:
+
+from typing import Listclass Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         if target in nums:
             return nums.index(target)

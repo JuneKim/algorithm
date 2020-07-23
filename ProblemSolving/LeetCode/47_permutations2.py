@@ -1,3 +1,4 @@
+from typing import List
 def permutation(nums: List[int]) -> List[List[int]]:
     data_len = len(nums)
     if data_len == 1:

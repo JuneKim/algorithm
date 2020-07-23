@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def reverse(self, x: int) -> int:
         ret_str = list()
