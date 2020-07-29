@@ -1,4 +1,15 @@
 from typing import List
+#
+# 1. Find max of height
+# 2. if num of max is larger than 1:
+# 2-1. calculate inner area
+# 3. add area on left and right sides
+#          |         |
+#    |     |         |     |
+#    |     |         |     |
+#     left    inner    right
+###############################
+
 def cal_water(height: List[int]) -> int:
     l_idx = 0
     r_idx = 1
