@@ -4,6 +4,12 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# binary traversal
+# preorder   [root][left][right]
+# inorder    [left][root][right]
+# postorder  [left][right][root]
+
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         return self._traversal(root)
