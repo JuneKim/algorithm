@@ -8,3 +8,9 @@ class Solution:
             tmp_cnt = tmp_cnt >> 1
                 
         return cnt
+    
+        """
+        :type n: int
+        :rtype: int
+        """
+        #return bin(n).count("1")
