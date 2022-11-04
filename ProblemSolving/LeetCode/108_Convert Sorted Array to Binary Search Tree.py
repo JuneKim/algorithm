@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# MJ
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
         
@@ -25,3 +26,13 @@ class Solution:
 
         return median_node
             
+#class Solution:
+#    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+#       li_len = len(nums)
+#       if li_len == 0:
+#           return None
+#
+#       return TreeNode(nums[li_len//2], sortedArrayToBST(nums[:li_len//2], sortedArrayToBST[li_len+1:])
+#
+#
+#
