@@ -51,3 +51,13 @@ class Solution:
             return str(mymax)*3
         else:
             return ""
+        
+## 3rd Solution
+class Solution:
+    def largestGoodInteger(self, num: str) -> str:
+        ans = ""
+        for idx in range(len(num)-2):
+            if len(set(num[idx], num[idx+1], num[idx+2])) == 1:
+                ans = max(ans, num[idx:2])
+        return ans
+            
