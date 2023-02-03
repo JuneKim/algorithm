@@ -11,3 +11,5 @@ class Solution:
             start_idx += n
 
         return myresult
+    
+        #return [original[i:i+n] for i in range(0, m*n, n)] if len(original) == m*n else []
