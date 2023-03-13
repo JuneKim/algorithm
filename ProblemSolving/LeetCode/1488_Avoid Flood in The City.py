@@ -1,4 +1,4 @@
-## Runtime: 14%, Memory: 40.40%
+## Runtime: 19.2%, Memory: 37.60%
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
         len_rains = len(rains)
@@ -14,11 +14,11 @@ class Solution:
         for idx, rain in enumerate(rains):
             if rain == 0:
                 if idx == 0: # exception
-                    li_ret.append(0)
+                    li_ret.append(1)
                     continue
                 
                 li_dry_days.append(idx) ## dry days
-                li_ret.append(0)
+                li_ret.append(1)
                 
             else:
                 if str(rain) in dic_current_lakes.keys():
@@ -31,10 +31,6 @@ class Solution:
                             break    
                                 
                     if idx_found < 0:
-                        #print (li_rains_cp)
-                        #print (dic_current_lakes)
-                        #print (li_ret)
-                        #print ("Do not come")
                         return []
                             
                     li_ret[idx_found] = rain
@@ -44,9 +40,4 @@ class Solution:
                 
                 dic_current_lakes[str(rain)] = idx
                 li_ret.append(-1)
-                #print (li_ret)
-        li_ret = [1 if i == 0 else i for i in li_ret]
-        #print (li_rains_cp)
-        #print (dic_current_lakes)
-        #print (li_ret)
         return li_ret
