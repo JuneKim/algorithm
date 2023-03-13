@@ -41,3 +41,38 @@ class Solution:
                 dic_current_lakes[str(rain)] = idx
                 li_ret.append(-1)
         return li_ret
+    
+    
+## runtime: 55.6%, Memory: 57.6%
+#class Solution(object):
+#    def avoidFlood(self, rains):
+#        """
+#        :type rains: List[int]
+#        :rtype: List[int]
+#        """
+#        q=[] # list for zeros positions
+#        ans=[]
+#        hashmap={}
+#        for i in range(len(rains)):
+#            if rains[i] == 0:
+#                q.append(i)
+#                ans.append(1)  # as per example 4
+#            else:
+#                if rains[i] in hashmap:    
+#                    if len(q) == 0:
+#                        ans=[]
+#                        break
+#                    else:
+#                        index = hashmap[rains[i]]
+#                        # find a zero position just greater than previous occurrence of rains[i]
+#                        pos=bisect.bisect_right(q, index) 
+#                        if pos<len(q): # no zero exists in between occurrence
+#                            ans[q[pos]]=rains[i]
+#                            q.pop(pos)
+#                        else:
+#                            ans=[]
+#                            break
+#                hashmap[rains[i]]=i
+#                ans.append(-1)  
+#            
+#        return ans
