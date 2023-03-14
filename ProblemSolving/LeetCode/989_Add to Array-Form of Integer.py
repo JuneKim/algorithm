@@ -1,4 +1,4 @@
-## runtime: 67.27%, memory: 9.65
+## runtime: 58.79%, memory: 61.50%
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
         if len(num) == 0:
