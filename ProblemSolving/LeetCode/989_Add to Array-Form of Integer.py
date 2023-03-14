@@ -6,6 +6,7 @@ class Solution:
         
         conv_num = int("".join([str(i) for i in num]))
         return [int (ch) for ch in str(conv_num + k)]
+        #return list(map(int,str(int(''.join(map(str,num)))+k)))
         
         
 data = [[[1,2,0,0], 34], [[2,7,4], 181], [[2,1,5], 806] ]
