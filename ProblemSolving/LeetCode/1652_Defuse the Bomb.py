@@ -2,6 +2,7 @@
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
         if k == 0:
+            # return [0] * len(code)
             return [0 for _ in code]
         
         if len(code) == 0:
