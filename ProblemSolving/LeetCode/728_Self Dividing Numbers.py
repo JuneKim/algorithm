@@ -13,6 +13,21 @@ class Solution:
             if is_found:
                 li_ret.append(target)
         return li_ret
+    
+## runtime: 43.53%, memory: 59.85%
+class Solution2:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        li_ret = []
+        for target in range(left, right+1):
+            nums = [*str(target)]
+            is_found = True
+            for num in nums:
+                if int(num) == 0 or target % int(num) != 0:
+                    is_found = False
+                    break
+            if is_found:
+                li_ret.append(target)
+        return li_ret
       
 data = [[1, 22], [47,85]]
 results = [[1,2,3,4,5,6,7,8,9,11,12,15,22], [48,55,66,77]]
