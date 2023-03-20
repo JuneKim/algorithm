@@ -17,6 +17,8 @@ class Solution:
             #print (code)
             k = -k
             
+        # k = abs(k)
+            
         curr_sum = 0
         for idx in range(len(code)):
             if idx == 0:
