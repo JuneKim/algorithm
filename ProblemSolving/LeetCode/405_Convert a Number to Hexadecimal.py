@@ -20,6 +20,21 @@ class Solution:
             remainder = remainder // 16
 
         return "".join([n for n in nums[::-1]])
+    
+## runtime: 47.14%, memory: 94.75%
+class Solution1:
+    def toHex(self, num: int) -> str:
+        if num == 0:
+            return '0'
+        mp = "0123456789abcdef"
+        ans = ""
+        for i in range(8):
+            n = num & 15
+            c = mp[n]
+            ans = c + ans
+            num = num >> 4
+        return ans.lstrip('0')
+
 
 data = [26, -1]
 results = ["1a", "ffffffff"]
